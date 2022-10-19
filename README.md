@@ -16,9 +16,10 @@
 ---
 # Description
 
-We have been researching the Text4SHell RCE (CVE-2022-42889) since it was released. We are open-sourcing an open detection and scanning tool for discovering and fuzzing for Text4Shell RCE CVE-2022-42889 based off Fullhunts log4j project back in 2021 (MAJOR CREDIT TO THEM). This shall be used by security teams to scan their infrastructure for Text4Shell RCE, and also test for WAF bypasses that can result in achieving code execution on the organization's environment.
+Heavily based off Fullhunts old [Log4j scanner](https://github.com/fullhunt/log4j-scan) from 2021 (MAJOR CREDIT TO THEM), this scanning tool is used now for discovering and fuzzing for Text4Shell RCE CVE-2022-42889. This shall be used by security teams to scan their infrastructure for Text4Shell RCE, and also test for WAF bypasses that can result in achieving code execution on the organization's environment.
 
-It supports DNS OOB callbacks out of the box, there is no need to set up a DNS callback server. Note interact.sh been slow so it is not recommended to use at this time.
+It supports DNS OOB callbacks out of the box, there is no need to set up a DNS callback server.
+Note interact.sh been slow so it is not recommended to use at this time.
 
 https://nvd.nist.gov/vuln/detail/CVE-2022-42889
 
