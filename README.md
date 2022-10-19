@@ -11,13 +11,14 @@
 - Fuzzing for JSON data parameters.
 - Supports DNS callback for vulnerability discovery and validation.
 - WAF Bypass payloads.
+- Support for custom DNS OOB callbacks (ex: Burpsuite Collaborator)
 
 ---
 # Description
 
 We have been researching the Text4SHell RCE (CVE-2022-42889) since it was released. We are open-sourcing an open detection and scanning tool for discovering and fuzzing for Text4Shell RCE CVE-2022-42889 based off Fullhunts log4j project back in 2021 (MAJOR CREDIT TO THEM). This shall be used by security teams to scan their infrastructure for Text4Shell RCE, and also test for WAF bypasses that can result in achieving code execution on the organization's environment.
 
-It supports DNS OOB callbacks out of the box, there is no need to set up a DNS callback server.
+It supports DNS OOB callbacks out of the box, there is no need to set up a DNS callback server. Note interact.sh been slow so it is not recommended to use at this time.
 
 https://nvd.nist.gov/vuln/detail/CVE-2022-42889
 
@@ -63,26 +64,33 @@ optional arguments:
 ## Scan a Single URL
 
 ```shell
-$ python3 text4shell.py -u https://<enter URL here>
+$ python3 text4shell-scan.py -u https://<enter URL here>
 ```
 
 ## Scan a Single URL using all Request Methods: GET, POST (url-encoded form), POST (JSON body)
 
 
 ```shell
-$ python3 text4shell.py -u https://<enter URL here> --run-all-tests
+$ python3 text4shell-scan.py -u https://<enter URL here> --run-all-tests
 ```
 
 ## Discover WAF bypasses against the environment.
 
 ```shell
-$ python3 text4shell.py -u https://<enter URL here> --waf-bypass
+$ python3 text4shell-scan.py -u https://<enter URL here> --waf-bypass
 ```
+
+## Scan a Single URL using Burpsuite Collaborator
+
+```shell
+$ python3 text4shell-scan.py -u https://<enter URL here> --custom-dns-callback-host <copy collaborator host here>
+```
+
 
 ## Scan a list of URLs
 
 ```shell
-$ python3 text4shell.py -l urls.txt
+$ python3 text4shell-scan.py -l urls.txt
 ```
 
 # Installation
@@ -94,18 +102,18 @@ $ pip3 install -r requirements.txt
 # Docker Support
 
 ```shell
-git clone [https://github.com/fullhunt/log4j-scan](https://github.com/CyberRedline/Text4Shell-Scan).git
-cd Text4Shell-Scan
-sudo docker build -t Text4Shell-Scan .
-sudo docker run -it --rm Text4Shell-Scan
+git clone [https://github.com/securekomodo/text4shell-scan.git](https://github.com/securekomodo/text4shell-scan.git)
+cd text4shell-scan
+sudo docker build -t text4shell-scan .
+sudo docker run -it --rm text4shell-scan
 
 # With URL list "urls.txt" in current directory
-docker run -it --rm -v $PWD:/data Text4Shell-Scan -l /data/urls.txt
+docker run -it --rm -v $PWD:/data text4shell-Scan -l /data/urls.txt
 ```
 
 
 # Legal Disclaimer
-This project is made for educational and ethical testing purposes only. Usage of Text4Shell-Scan for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
+This project is made for educational and ethical testing purposes only. Usage of text4shell-scan for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
 
 
 # License
