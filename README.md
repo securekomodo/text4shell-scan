@@ -112,6 +112,9 @@ sudo docker run -it --rm text4shell-scan
 docker run -it --rm -v $PWD:/data text4shell-Scan -l /data/urls.txt
 ```
 
+# TODO
+- Implement a param miner to more intelligently inject payloads into. Currently GET requests are simply ?v=<payload>
+- Add URL encoding of varying degrees to not only bypass WAF, but to avoid HTTP Error 400 for bad chars
 
 # Legal Disclaimer
 This project is made for educational and ethical testing purposes only. Usage of text4shell-scan for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
