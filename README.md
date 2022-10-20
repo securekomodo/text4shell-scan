@@ -113,7 +113,7 @@ docker run -it --rm -v $PWD:/data text4shell-Scan -l /data/urls.txt
 ```
 
 # TODO
-- Implement a param miner to more intelligently inject payloads into. Currently GET requests are simply ?v=<payload>
+- Implement a param miner to more intelligently inject payloads into. Currently GET requests are simply `?v=<payload>`
 - Add URL encoding of varying degrees to not only bypass WAF, but to avoid HTTP Error 400 for bad chars
 
 # Legal Disclaimer
